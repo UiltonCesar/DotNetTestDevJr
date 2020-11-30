@@ -1,4 +1,6 @@
-﻿namespace Tasks
+﻿using System.Text.RegularExpressions;
+
+namespace Tasks
 {
     public class Task2
     {
@@ -20,6 +22,11 @@
          * 3 - abc1324
          * 4 - az111W
          */
-        public static bool CheckInput(string input) { }
+        public static bool CheckInput(string input)
+        { 
+            var rgx = new Regex(@"^[A-Z]{3}\d{4}[a-z]{1}");
+            return rgx.IsMatch(input) & input.Length == 8? true: false;
+
+        }
     }
 }
